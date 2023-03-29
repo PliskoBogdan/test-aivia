@@ -4,10 +4,10 @@
     <v-container>
       <v-row>
         <v-col>
-          <v-text-field label="Size X" v-model="sizeX" @input="redrawSquares" />
+          <v-text-field type="number" label="Size X" v-model="sizeX" @input="redrawSquares" />
         </v-col>
         <v-col>
-          <v-text-field label="Size Y" v-model="sizeY" @input="redrawSquares" />
+          <v-text-field type="number" label="Size Y" v-model="sizeY" @input="redrawSquares" />
         </v-col>
       </v-row>
     </v-container>
@@ -31,8 +31,8 @@ import { reactive, toRefs } from 'vue';
 export default {
   setup() {
     const state = reactive({
-      sizeX: 64,
-      sizeY: 64,
+      sizeX: 30,
+      sizeY: 30,
       squares: [],
     });
 
