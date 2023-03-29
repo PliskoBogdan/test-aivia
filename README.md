@@ -1,5 +1,5 @@
 # test-aivia
-
+В компоненте Login, я использовал <script setup>, в GameView setup(), так как не знал что для вас будет более приемлемым.
 ## Project setup
 ```
 yarn install
