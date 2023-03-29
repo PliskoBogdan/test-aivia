@@ -5,7 +5,7 @@
         <v-card>
           <v-card-title class="text-center">Login Form</v-card-title>
           <v-card-text>
-            <v-form @submit.prevent="login">
+            <v-form @submit.prevent="onLogin">
               <v-text-field
                 v-model.trim="data.email"
                 :error-messages="emailErrors"
@@ -46,8 +46,8 @@ const data = reactive({
 const router = useRouter();
 
 const rules = {
-  email: { required, email }, // Matches state.firstName
-  password: { required, minLength: minLength(6) }, // Matches state.lastName
+  email: { required, email },
+  password: { required, minLength: minLength(6) },
 };
 
 const v$ = useVuelidate(rules, data);
@@ -77,7 +77,7 @@ const emailErrors = computed(() => {
   return errors;
 });
 
-const login = async () => {
+const onLogin = async () => {
   const result = await v$.value.$validate();
   if (!result) {
     return;
