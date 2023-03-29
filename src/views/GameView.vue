@@ -18,6 +18,9 @@
             @input="redrawSquares"
           />
         </v-col>
+        <v-col>
+          <v-btn @click="unLogin">Un login</v-btn>
+        </v-col>
       </v-row>
     </v-container>
     <div class="game__area-container">
@@ -38,6 +41,7 @@
 
 <script>
 import { reactive, toRefs } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
   setup() {
@@ -46,6 +50,8 @@ export default {
       sizeY: 30,
       squares: [],
     });
+
+    const router = useRouter();
 
     const redrawSquares = () => {
       state.squares = [];
@@ -61,11 +67,17 @@ export default {
       }
     };
 
+    const unLogin = () => {
+      window.localStorage.removeItem('user')
+      router.push("/login");
+    }
+
     redrawSquares();
 
     return {
       ...toRefs(state),
       redrawSquares,
+      unLogin
     };
   },
 };

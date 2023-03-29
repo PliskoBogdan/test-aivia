@@ -83,6 +83,8 @@ const onLogin = async () => {
     return;
   }
 
+  window.localStorage.setItem('user', JSON.stringify(data.email))
+
   router.push("/game");
 };
 </script>
