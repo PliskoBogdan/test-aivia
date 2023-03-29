@@ -1,20 +1,31 @@
-
 <template>
   <div>
     <v-container>
       <v-row>
         <v-col>
-          <v-text-field type="number" label="Size X" v-model="sizeX" @input="redrawSquares" />
+          <v-text-field
+            type="number"
+            label="Size X"
+            v-model="sizeX"
+            @input="redrawSquares"
+          />
         </v-col>
         <v-col>
-          <v-text-field type="number" label="Size Y" v-model="sizeY" @input="redrawSquares" />
+          <v-text-field
+            type="number"
+            label="Size Y"
+            v-model="sizeY"
+            @input="redrawSquares"
+          />
         </v-col>
       </v-row>
     </v-container>
     <div class="game__area-container">
-      <div class="grid-container">
+      <div class="game__area-squares">
         <div v-for="(row, rowIndex) in squares" :key="rowIndex" class="row">
-          <div v-for="(square, squareIndex) in row" :key="squareIndex"
+          <div
+            v-for="(square, squareIndex) in row"
+            :key="squareIndex"
             :class="{ square: true, blue: square.color, white: !square.color }"
             @mouseover="square.color = !square.color"
             @mouseout="square.color = !square.color"
@@ -26,7 +37,7 @@
 </template>
 
 <script>
-import { reactive, toRefs } from 'vue';
+import { reactive, toRefs } from "vue";
 
 export default {
   setup() {
@@ -60,15 +71,7 @@ export default {
 };
 </script>
 
-<style>
-.grid-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-}
-
+<style lang="scss">
 .row {
   display: flex;
   margin-bottom: 2px;
@@ -87,9 +90,18 @@ export default {
 .white {
   background-color: white;
 }
+.game__area {
+  &-container {
+    padding: 30px 0;
+    background: #333;
+  }
 
-.game__area-container {
-  padding: 30px 0;
-  background: #333;
+  &-squares {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
 }
 </style>
