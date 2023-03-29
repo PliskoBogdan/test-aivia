@@ -1,37 +1,35 @@
 <template>
-  <div class="login-container">
-    <v-container fluid>
-      <v-row justify="center">
-        <v-col cols="12" sm="8" md="6">
-          <v-card>
-            <v-card-title class="text-center">Login Form</v-card-title>
-            <v-card-text>
-              <v-form @submit.prevent="onLogin">
-                <v-text-field
-                  v-model.trim="data.email"
-                  :error-messages="emailErrors"
-                  label="Email"
-                  outlined
-                  required
-                ></v-text-field>
+  <v-container fluid class="login-container">
+    <v-row justify="center">
+      <v-col cols="12" sm="8" md="6">
+        <v-card>
+          <v-card-title class="text-center">Login Form</v-card-title>
+          <v-card-text>
+            <v-form @submit.prevent="onLogin">
+              <v-text-field
+                v-model.trim="data.email"
+                :error-messages="emailErrors"
+                label="Email"
+                outlined
+                required
+              ></v-text-field>
 
-                <v-text-field
-                  v-model.trim="data.password"
-                  :error-messages="passwordErrors"
-                  label="Password"
-                  outlined
-                  required
-                  type="password"
-                ></v-text-field>
+              <v-text-field
+                v-model.trim="data.password"
+                :error-messages="passwordErrors"
+                label="Password"
+                outlined
+                required
+                type="password"
+              ></v-text-field>
 
-                <v-btn type="submit" color="primary">Login</v-btn>
-              </v-form>
-            </v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </div>
+              <v-btn type="submit" color="primary">Login</v-btn>
+            </v-form>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script setup>
@@ -93,6 +91,9 @@ const onLogin = async () => {
 
 <style scoped>
 .login-container {
-  margin-top: 20%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
